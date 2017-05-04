@@ -6,14 +6,20 @@
     <meta name="description" content="JavaScript Controler">
     <meta name="author" content="Micro Morpho">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/bot.js"></script>
   </head>
   <body>
     <h1>Mini-Morpho Control Pad</h1>
     <h2>To control mini-moprho click and hold the button over the
       target.</h2>
-    <canvas id="target" tabindex="1"></canvas>
-    <h2>Messages to Mini:</h2>
-    <div id="messages"></div>
+    <div id="container">
+      <canvas id="target" tabindex="1" height="250" width="300"></canvas>
+      <h2>Messages to Mini:</h2>
+      <div id="messages"></div>
+    </div>
+    <div id="container">
+      <canvas id="board" height="400" width="400">Test test test</canvas>
+    </div>
     <script src="js/pad.js" onload="setup()">
       writeMessage(output, 'Messages to Mini.')
     </script>

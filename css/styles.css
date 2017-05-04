@@ -16,15 +16,22 @@ h2 {
     margin: 5px;
 }
 
-#target {
+#board {
     border-radius: 10px;
     border: 2px solid #515151;
-    padding: 20px; 
-    width: 300px;
-    height: 250px;
-    background: url(../static/ControlPad.png);
+    padding: 0px; 
+    width: 400px;
+    height: 400px;
+    background: url(../static/checker.png);
     background-position: center;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
+}
+
+#container {
+    padding: 0px; 
+    width: 340px;
+    margin-right: 20px;
+    float: left;
 }
 
 #messages {
@@ -37,4 +44,15 @@ h2 {
     font-family: sans-serif;
     font-weight: 100;
     font-size: 11pt;
+}
+
+#target {
+    border-radius: 10px;
+    border: 2px solid #515151;
+    padding: 20px; 
+    width: 300px;
+    height: 250px;
+    background: url(../static/ControlPad.png);
+    background-position: center;
+    background-repeat: no-repeat;   
 }

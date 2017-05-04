@@ -32,6 +32,7 @@ function writeMessage(elt, txt = null){
 	pan = Math.round(constrain(pan, -pan_tilt_limit, pan_tilt_limit));
 	if (txt === null) {
 	    txt = 'P' + pan + 'T' + tilt + 'V' + speed + 'Y' + yaw;
+	    robot.update(txt);
 	}
 	msgs.push(txt);
 	while (msgs.length > max_msgs) {
@@ -89,11 +90,14 @@ function keyMapper(evt) {
 
 var tgt = document.getElementById('target');
 var output = document.getElementById('messages');
+var board = document.getElementById('board');
+var robot = new Bot(board);
 
 function setup(){
     loop = setInterval(function(){
 	refresh = true;
     }, refresh_rate)
+    robot.start();
 }
 
 // First test is the site is mobile
