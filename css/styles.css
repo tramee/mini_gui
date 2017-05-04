@@ -1,0 +1,40 @@
+h1 {
+    color: orange;
+    font-size: 20pt;
+    text-align: center;
+    width: 500px;
+    background-color: #818181;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+h2 {
+    color: #444;
+    font-size: 13pt;
+    font-family: sans-serif;
+    font-weight: 300;
+    margin: 5px;
+}
+
+#target {
+    border-radius: 10px;
+    border: 2px solid #515151;
+    padding: 20px; 
+    width: 300px;
+    height: 250px;
+    background: url(../static/ControlPad.png);
+    background-position: center;
+    background-repeat: no-repeat;   
+}
+
+#messages {
+    color: gray;
+    border-radius: 10px;
+    border: 2px solid #515151;
+    padding: 10px; 
+    width: 320px;
+    height: 160px;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 11pt;
+}
