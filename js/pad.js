@@ -25,6 +25,15 @@ function constrain(x, a, b){
     }
 }
 
+var request = new XMLHttpRequest();
+// request.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//        // Typical action to be performed when the document is ready:
+//        var status = xhttp.responseText;
+//     }
+// };
+var address = 'http://127.0.0.1:5000';
+
 // Write the messages in the message canvas and 
 function writeMessage(elt, txt = null){
     if (refresh) {
@@ -33,6 +42,10 @@ function writeMessage(elt, txt = null){
 	if (txt === null) {
 	    txt = 'P' + pan + 'T' + tilt + 'V' + speed + 'Y' + yaw;
 	    robot.update(txt);
+	    rqst = address + "/?msg=" + txt;
+	    // console.log(rqst);
+	    request.open("GET", rqst, false);
+	    request.send();
 	}
 	msgs.push(txt);
 	while (msgs.length > max_msgs) {
