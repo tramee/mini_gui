@@ -43,7 +43,6 @@ function writeMessage(elt, txt = null){
 	    txt = 'P' + pan + 'T' + tilt + 'V' + speed + 'Y' + yaw;
 	    robot.update(txt);
 	    rqst = address + "/?msg=" + txt;
-	    // console.log(rqst);
 	    request.open("GET", rqst, false);
 	    request.send();
 	}

@@ -1,27 +1,23 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import socket
 from time import time
 
 app = Flask(__name__)
 UDPSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 address = ('10.0.0.101',54321)
-last_call = time()
 
 @app.route('/', methods = ['GET'])
 def hello():
     global last_call
     if not 'msg' in request.args:
-        return('Error, wrong data.')
+        return(jsonify(status= 'error',
+                       message= 'Message to relay not found.'))
     msg = request.args['msg']
-    # speed = '0'
-    # speed = msg.split('V')[1]
-    # speed, yaw = speed.split('Y')
-    # # speed = msg.split('V')
-    # return('Speed is {}, and yaw is {}.'.format(speed,yaw))
     UDPSock.sendto(msg, address)
-    print ('Loop time: {}s.'.format(time() - last_call))
-    last_call = time()
-    return('Message Sent')
+    response = jsonify(status = 'success',
+                       message = 'UDP message sent.')
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return(response)
 
 if __name__ == '__main__':
     app.run()
